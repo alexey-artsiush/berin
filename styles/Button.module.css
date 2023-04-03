@@ -1,0 +1,31 @@
+.btn {
+    border-radius: 15px;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+.btn--small {
+    font-size: 14px;
+    border-radius: 15px;
+    color: white;
+    border: none;
+    padding: 7px;
+    cursor: pointer;
+    background-color: rgb(85, 88, 237);
+}
+
+.btn--medium {
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(85, 88, 237);
+    font-size: 18px;
+    margin: 5px;
+}
+
+.btn--red {
+    background-color: rgb(85, 88, 237);
+}
+
