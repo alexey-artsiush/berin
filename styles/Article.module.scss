@@ -1,0 +1,21 @@
+.article {
+  margin: 0 auto;
+  padding: 160px 0;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  h2 {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 30px;
+    font-weight: 500;
+
+  }
+}

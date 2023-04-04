@@ -1,11 +1,17 @@
-import Heading from "@/components/Heading";
+import Image from "next/image";
+import styles from "../styles/Header.module.scss";
+import Link from "next/link";
 
-const Header = () => {
+export default function Header() {
   return (
-    <header>
-      <Heading tag="h3" text="Header" />
-    </header>
+    <div className={styles.header}>
+      <div className={styles.nav}>
+        <Link href={"/product"} text="WOMAN" />
+        <Link href={"/product"} text="MAN" />
+      </div>
+      <div className={styles.logo}>
+        <Image width="200" height="100" src="/logo.png" alt="logo" />
+      </div>
+    </div>
   );
-};
-
-export default Header;
+}

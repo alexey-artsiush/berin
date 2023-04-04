@@ -1,0 +1,62 @@
+@import "varaibles.module";
+
+.footer {
+  background-color: black;
+  padding: 30px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+
+  .contacts {
+    display: flex;
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      margin: 0 30px;
+      text-align: center;
+
+      img {
+        margin: 0 -8px 3px 0;
+      }
+    }
+  }
+
+  .phone {
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  .schedule {
+    color: $white-2;
+    font-size: 14px;
+    margin-left: 45px;
+  }
+
+  .social {
+    display: flex;
+  }
+
+  .icon {
+    height: 45px;
+    margin: 0 4px;
+  }
+
+  .socialIcon {
+    margin: 0 15px;
+  }
+
+  .line {
+    border-bottom: 1px solid $black-1;
+    padding: 30px 0;
+    width: 100%;
+  }
+
+  .copyright {
+    color: $white-2;
+    font-size: 14px;
+    margin: 15px 40px 5px;
+  }
+}
