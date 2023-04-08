@@ -1,9 +1,0 @@
-.homePage {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.productWrapper {
-  display: flex;
-  width: 100%;
-}

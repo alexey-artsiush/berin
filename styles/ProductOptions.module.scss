@@ -1,3 +1,69 @@
 .clotheOptions {
+  font-size: 26px;
+  padding: 100px;
+  position: fixed;
 
+  .clotheOptionsTitle {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .clotheOptionsSizes {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .accordionTitle {
+    font-size: 26px;
+  }
+
+  .accordionDescription {
+    margin-left: 15px;
+  }
+
+  table {
+    margin: -25px 0 0 15px;
+    width: 70%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+
+    tr {
+      border-bottom: 1px solid #E8E8E8;
+      font-size: 24px;
+      font-weight: 300;
+      color: #626262;
+    }
+
+    td {
+      width: 0;
+      white-space: nowrap;
+    }
+
+    .optionValue {
+      text-align: end;
+      color: #000000;
+    }
+  }
+
+  .button {
+    background-color: #DB2231;
+    border: none;
+    color: white;
+    font-weight: 700;
+    padding: 8px 35px;
+    margin-left: 30px;
+  }
+
+  .sizeButton {
+    color: gray;
+    background: none;
+    border: none;
+
+    &:active {
+      color: black;
+      font-weight: 700;
+    }
+  }
 }

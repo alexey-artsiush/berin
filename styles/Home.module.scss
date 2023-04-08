@@ -1,0 +1,23 @@
+.homePage {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.productWrapper {
+  display: flex;
+  width: 100%;
+
+  .productImagesWrapper {
+    width: 60%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .productOptionsWrapper {
+    width: 40%;
+  }
+}
