@@ -2,7 +2,9 @@ import Link from "next/link";
 import MainContainer from "../components/MainContainer";
 import Header from "../components/Header";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import 'swiper/swiper.min.css'
+import styles from '../styles/Index.module.scss'
+
 
 const Index = () => {
     return (
@@ -10,15 +12,19 @@ const Index = () => {
         <Header></Header>
         <Swiper
           spaceBetween={50}
-          slidesPerView={3}
+          slidesPerView={1}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
-          ...
+          <SwiperSlide>
+            <div className={styles.slide}></div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className={styles.slide}></div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className={styles.slide}></div>
+          </SwiperSlide>
         </Swiper>
       </MainContainer>
     );
