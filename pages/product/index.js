@@ -3,13 +3,18 @@ import styles from "/styles/Home.module.scss";
 import Article from "@/components/Article";
 import ProductImage from "@/components/ProductImage";
 import ProductOptions from "@/components/ProductOptions";
-import Header from "@/components/Header";
 
-const Home = () => {
+const Product = () => {
   return (
     <div className={styles.homePage}>
-      <Header />
-
+      <div className={styles.productWrapper}>
+        <div className={styles.productImagesWrapper}>
+          <ProductImage />
+        </div>
+        <div className={styles.productOptionsWrapper}>
+          <ProductOptions />
+        </div>
+      </div>
       <Article
         title="Text title"
         description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, officiis dolor sit amet, consectetur adipisicing elit. Nesciunt, officiis dolor sit amet, consectetur adipisicing elit. Nesciunt, officiis dolor sit amet, consectetur adipisicing elit. Nesciunt, officiis."
@@ -18,4 +23,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Product;

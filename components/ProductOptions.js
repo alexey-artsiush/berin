@@ -3,29 +3,21 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import axios from 'axios';
 import Accordion from "@mui/material/Accordion";
 import Button from "@/components/Button";
 import {useState} from "react";
 import {ToggleButton} from "@mui/material";
+import { ToggleButtonGroup } from '@mui/material';
+const ProductOptions = ({name = "T-SHIRT", price = 75}) => {
 
-const ProductOptions = ({name = "T-shirt", price = 75}) => {
+  const [size, setSize] = useState('');
+  const handleChooseSize = (event) => {
+    setSize(event.target.value);
+  };
 
-  const [activeSizeS, setActiveSizeS] = useState(false)
-  const [activeSizeM, setActiveSizeM] = useState(false)
-  const [activeSizeL, setActiveSizeL] = useState(false)
-  const [activeSizeXL, setActiveSizeXL] = useState(false)
-
-  const clickS = () => {
-    setActiveSizeS(!activeSizeS)
-  }
-  const clickM = () => {
-    setActiveSizeM(!activeSizeM)
-  }
-  const clickL = () => {
-    setActiveSizeL(!activeSizeL)
-  }
-  const clickXL = () => {
-    setActiveSizeXL(!activeSizeXL)
+  const handleBuy = (size) => {
+    axios.post(SERVER_API, {size: size})
   }
 
   return (
@@ -35,32 +27,47 @@ const ProductOptions = ({name = "T-shirt", price = 75}) => {
         <div>{price}$</div>
       </div>
       <div className={styles.clotheOptionsSizes}>
-        <ToggleButton
-          value="S"
-          sx={{
-            border: 'none',
-          }}
-          selected={activeSizeS}
-          onChange={() => {
-            setActiveSizeS(!activeSizeS);
-          }}
+        <ToggleButtonGroup
+          value={size}
+          exclusive
+          size="large"
+          onChange={handleChooseSize}
+          aria-label="text alignment"
         >
-          S
-        </ToggleButton>
-        <Button className={styles.sizeButton} text="S" onClick={() => clickS()} />
-        <Button className={styles.sizeButton} text="M" onClick={() => clickM()} />
-        <Button className={styles.sizeButton} text="L" onClick={() => clickL()} />
-        <Button className={styles.sizeButton} text="XL" onClick={() => clickXL()} />
-
-        <Button className={styles.button} text="Buy" />
+          <ToggleButton
+            sx={{
+                border: "none"
+            }}
+            value="S" aria-label="left aligned">
+            S
+          </ToggleButton>
+          <ToggleButton
+            sx={{
+            border: "none"
+          }} value="M" aria-label="centered">
+            M
+          </ToggleButton>
+          <ToggleButton
+            sx={{
+              border: "none"
+            }}
+            value="L" aria-label="right aligned">
+            L
+          </ToggleButton>
+        </ToggleButtonGroup>
+        <Button
+          className={styles.button} text="BUY" onClick={() => handleBuy()} />
       </div>
 
-      <Accordion>
+      <Accordion
+        sx={{
+          boxShadow: "none"
+        }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
         >
           <Typography className={styles.accordionTitle}>
-            Description
+            DESCRIPTION
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -69,11 +76,14 @@ const ProductOptions = ({name = "T-shirt", price = 75}) => {
         </AccordionDetails>
       </Accordion>
 
-      <Accordion>
+      <Accordion
+        sx={{
+          boxShadow: "none"
+        }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography className={styles.accordionTitle}>Composition and care</Typography>
+          <Typography className={styles.accordionTitle}>COMPOSITION</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography className={styles.accordionDescription}>Crafted in Italy from black cotton jersey, the relaxed-fit piece from Gucci has a crew neckline and is accentuated by the large double G logo print at the front.
@@ -81,11 +91,14 @@ const ProductOptions = ({name = "T-shirt", price = 75}) => {
         </AccordionDetails>
       </Accordion>
 
-      <Accordion>
+      <Accordion
+        sx={{
+          boxShadow: "none"
+        }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography className={styles.accordionTitle}>Options</Typography>
+          <Typography className={styles.accordionTitle}>OPTIONS</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography component={'span'} className={styles.accordionDescription}>
