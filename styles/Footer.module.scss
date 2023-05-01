@@ -19,7 +19,7 @@
       text-align: center;
 
       img {
-        margin: 0 -8px 3px 0;
+        margin-right: -8px;
       }
     }
   }
@@ -39,13 +39,11 @@
     display: flex;
   }
 
-  .icon {
-    height: 45px;
-    margin: 0 4px;
-  }
-
   .socialIcon {
     margin: 0 15px;
+    height: 40px;
+    fill-rule: evenodd;
+    width: 30px;
   }
 
   .line {

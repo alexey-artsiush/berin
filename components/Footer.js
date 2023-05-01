@@ -1,10 +1,11 @@
 import Image from "next/image";
-import instagram from "/public/icons/instagram.svg";
-import telegram from "/public/icons/telegram.svg";
-import facebook from "/public/icons/facebok.svg";
-import phone from "/public/icons/phone.svg";
-import whatsapp from "/public/icons/whatsapp.svg";
+import Instagram from "/public/icons/instagram.svg";
+import Telegram from "/public/icons/telegram.svg?url";
+import Facebook from "/public/icons/facebok.svg?url";
+import Phone from "/public/icons/phone.svg?url";
+import Whatsapp from "/public/icons/whatsapp.svg?url";
 import styles from "/styles/Footer.module.scss";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -12,13 +13,13 @@ const Footer = () => {
       <div className={styles.contacts}>
         <div className={styles.contact}>
           <span className={styles.phone}>
-            <Image src={phone} alt="insta-logo" /> +9725 000000000
+            <Image src={Phone} alt="phone-logo" /> +9725 000000000
           </span>
           <span className={styles.schedule}>10-20 Monday through Friday </span>
         </div>
         <div className={styles.contact}>
           <span className={styles.phone}>
-            <Image src={whatsapp} alt="insta-logo" /> +9725 00000000
+            <Image src={Whatsapp} alt="whatsapp-logo" /> +9725 00000000
           </span>
           <span className={styles.schedule}>10-20 Monday through Friday </span>
         </div>
@@ -27,13 +28,15 @@ const Footer = () => {
       <div>
         <div className={styles.social}>
           <div className={styles.socialIcon}>
-            <Image src={instagram} alt="insta-logo" />
+            <Link className={styles.navLink} href=" https://www.instagram.com/berin.bless/">
+              <Instagram />
+            </Link>
           </div>
           <div className={styles.socialIcon}>
-            <Image src={telegram} alt="telegram-logo" />
+            <Image src={Telegram} alt="telegram-logo" />
           </div>
           <div className={styles.socialIcon}>
-            <Image src={facebook} alt="facebook-logo" />
+            <Image src={Facebook} alt="facebook-logo" />
           </div>
         </div>
       </div>

@@ -1,6 +1,41 @@
-.logo {
-  position: absolute;
-  left: 45%;
-  width: 10%;
-  right: 45%;
+@import "varaibles.module";
+
+.header {
+  background-color: $black;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  align-items: center;
+  font-size: 22px;
+  color: $white;
+
+  .basket {
+    width: 33.33%;
+    stroke: $white;
+    fill: $white;
+    display: inline-block;
+    fill-rule: evenodd;
+    text-align: end;
+
+    .basketLogo {
+      fill: $white;
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  .nav {
+    width: 33.33%;
+
+    .navLink {
+      color: $white;
+      margin-right: 20px;
+    }
+  }
+
+  .logo {
+    width: 33.33%;
+    text-align: center;
+  }
+
 }

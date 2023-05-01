@@ -9,22 +9,22 @@ import Button from "@/components/Button";
 import {useState} from "react";
 import {ToggleButton} from "@mui/material";
 import { ToggleButtonGroup } from '@mui/material';
-const ProductOptions = ({name = "T-SHIRT", price = 75}) => {
+const ProductOptions = ({name = "T-SHIRT", price = 199}) => {
 
   const [size, setSize] = useState('');
   const handleChooseSize = (event) => {
     setSize(event.target.value);
   };
 
-  const handleBuy = (size) => {
-    axios.post(SERVER_API, {size: size})
+  const handleBag = () => {
+    localStorage.setItem("bag", JSON.stringify([{name: name, price: price, size: size}]))
   }
 
   return (
     <div className={styles.clotheOptions}>
       <div className={styles.clotheOptionsTitle}>
         <div>{name}</div>
-        <div>{price}$</div>
+        <div>{price} NIS</div>
       </div>
       <div className={styles.clotheOptionsSizes}>
         <ToggleButtonGroup
@@ -56,7 +56,7 @@ const ProductOptions = ({name = "T-SHIRT", price = 75}) => {
           </ToggleButton>
         </ToggleButtonGroup>
         <Button
-          className={styles.button} text="BUY" onClick={() => handleBuy()} />
+          className={styles.button} text="Add to bag" onClick={() => handleBag()} />
       </div>
 
       <Accordion
