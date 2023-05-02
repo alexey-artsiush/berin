@@ -1,8 +1,16 @@
 import styles from "/styles/Basket.module.scss";
 import BasketCard from "@/components/BasketCard";
 import image from "/public/product/1.jpg";
+import {useEffect, useState} from "react";
 
 const Basket = () => {
+  const [basket, setBasket] = useState("")
+
+  useEffect(()=>{
+    setBasket(JSON.parse(localStorage.getItem("bag")));
+  },[]);
+
+
   return (
     <div className={styles.basket}>
       <div className={styles.basketWrapper}>
@@ -22,7 +30,14 @@ const Basket = () => {
             </div>
           </div>
           <div className={styles.line}></div>
-          <BasketCard name={"Bereshit T-Shirt"} quantity={1} price={199} size={"M"} image={image} />
+          {basket ?
+            basket.map((product)=> (
+              <BasketCard
+                product={product}
+                key={product.id}
+              />
+              )
+          ): <h3>Here is clear</h3> }
         </div>
       </div>
     </div>

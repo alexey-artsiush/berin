@@ -1,30 +1,31 @@
 import styles from "/styles/BasketCard.module.scss";
 import Image from "next/image";
 
-const BasketCard = ({name="Bereshit T-Shirt", price=199, quantity=1, size="M", image}) => {
+const BasketCard = ({ product }) => {
+  console.log(product)
   return (
     <div className={styles.basketCard}>
       <div className={styles.product}>
         <div className={styles.image}>
-          <Image src={image} height={180} />
+          <Image src={product.image} height={180} width={180} alt="title-image"/>
         </div>
         <div className={styles.aboutGoods}>
           <div className={styles.name}>
-            {name}
+            {product.name}
           </div>
           <div className={styles.price}>
-            PRICE: {price} NIS
+            PRICE: {product.price} NIS
           </div>
           <div className={styles.size}>
-            SIZE: {size}
+            SIZE: {product.size}
           </div>
         </div>
       </div>
       <div className={styles.quantity}>
-        {quantity}
+        {product.quantity}
       </div>
       <div className={styles.total}>
-        {quantity * price} NIS
+        {product.quantity * product.price} NIS
       </div>
     </div>
   );

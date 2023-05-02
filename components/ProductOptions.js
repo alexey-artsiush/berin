@@ -3,21 +3,21 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import axios from 'axios';
+import image from "/public/product/1.jpg";
 import Accordion from "@mui/material/Accordion";
 import Button from "@/components/Button";
 import {useState} from "react";
 import {ToggleButton} from "@mui/material";
 import { ToggleButtonGroup } from '@mui/material';
 const ProductOptions = ({name = "T-SHIRT", price = 199}) => {
-
   const [size, setSize] = useState('');
-  const handleChooseSize = (event) => {
-    setSize(event.target.value);
-  };
-
   const handleBag = () => {
-    localStorage.setItem("bag", JSON.stringify([{name: name, price: price, size: size}]))
+    let previousBasket = JSON.parse(localStorage.getItem("bag"))
+    if (previousBasket == null) {
+      previousBasket = []
+    }
+    previousBasket.push({name: name, price: price, size: size, quantity: 1, image: image, id: Math.round(Math.random()*10000)})
+    localStorage.setItem("bag", JSON.stringify(previousBasket))
   }
 
   return (
@@ -31,7 +31,7 @@ const ProductOptions = ({name = "T-SHIRT", price = 199}) => {
           value={size}
           exclusive
           size="large"
-          onChange={handleChooseSize}
+          onChange={(e) => setSize(e.target.value)}
           aria-label="text alignment"
         >
           <ToggleButton
