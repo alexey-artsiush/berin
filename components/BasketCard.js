@@ -1,8 +1,9 @@
 import styles from "/styles/BasketCard.module.scss";
 import Image from "next/image";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import Link from "next/link";
 
-const BasketCard = ({ product }) => {
-  console.log(product)
+const BasketCard = ({ product, onClick }) => {
   return (
     <div className={styles.basketCard}>
       <div className={styles.product}>
@@ -10,9 +11,9 @@ const BasketCard = ({ product }) => {
           <Image src={product.image} height={180} width={180} alt="title-image"/>
         </div>
         <div className={styles.aboutGoods}>
-          <div className={styles.name}>
+          <Link className={styles.name} href="/product">
             {product.name}
-          </div>
+          </Link>
           <div className={styles.price}>
             PRICE: {product.price} NIS
           </div>
@@ -26,6 +27,7 @@ const BasketCard = ({ product }) => {
       </div>
       <div className={styles.total}>
         {product.quantity * product.price} NIS
+        <DeleteOutlineIcon className={styles.trashIcon} onClick={onClick} />
       </div>
     </div>
   );

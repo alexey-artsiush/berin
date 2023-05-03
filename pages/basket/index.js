@@ -1,14 +1,18 @@
 import styles from "/styles/Basket.module.scss";
 import BasketCard from "@/components/BasketCard";
-import image from "/public/product/1.jpg";
 import {useEffect, useState} from "react";
 
 const Basket = () => {
-  const [basket, setBasket] = useState("")
+  const [basket, setBasket] = useState([])
 
   useEffect(()=>{
     setBasket(JSON.parse(localStorage.getItem("bag")));
+    localStorage.setItem("bag", JSON.stringify(basket))
   },[]);
+
+  const removeProduct = id => {
+    setBasket(prevBasket => prevBasket.filter(el => el.id !== id))
+  }
 
 
   return (
@@ -30,14 +34,17 @@ const Basket = () => {
             </div>
           </div>
           <div className={styles.line}></div>
-          {basket ?
-            basket.map((product)=> (
-              <BasketCard
-                product={product}
-                key={product.id}
-              />
-              )
-          ): <h3>Here is clear</h3> }
+          <div className={styles.basketList}>
+            {basket && basket.length > 0?
+              basket.map((product)=> (
+                  <BasketCard
+                    product={product}
+                    key={product.id}
+                    onClick={() => removeProduct(product.id)}
+                  />
+                )
+              ): <h3>Here is clear</h3> }
+          </div>
         </div>
       </div>
     </div>

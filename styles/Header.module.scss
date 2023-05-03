@@ -17,10 +17,28 @@
     fill-rule: evenodd;
     text-align: end;
 
-    .basketLogo {
-      fill: $white;
-      height: 30px;
-      width: 30px;
+    .navLinkBag {
+      color: $white;
+      margin-right: 20px;
+      position: relative;
+
+      .basketLogo {
+        fill: $white;
+        height: 30px;
+        width: 30px;
+      }
+
+      .basketQuantity {
+        color: $white;
+        background: $red;
+        position: absolute;
+        border-radius: 30px;
+        padding: 3px 5px;
+        font-size: 14px;
+        font-weight: 700;
+        top: -16px;
+        right: -5px;
+      }
     }
   }
 
@@ -37,5 +55,4 @@
     width: 33.33%;
     text-align: center;
   }
-
 }

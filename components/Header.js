@@ -4,7 +4,7 @@ import Logo from "/public/logo.webp";
 import Basket from "/public/icons/basket.svg";
 import Link from "next/link";
 
-const Header = () => {
+const Header = ({ basketQuantity }) => {
   return (
     <div className={styles.header}>
       <div className={styles.nav}>
@@ -17,8 +17,9 @@ const Header = () => {
         </Link>
       </div>
       <div className={styles.basket}>
-        <Link className={styles.navLink} href="/basket">
+        <Link className={styles.navLinkBag} href="/basket">
           <Basket className={styles.basketLogo} />
+          {basketQuantity > 0 ? <div className={styles.basketQuantity}>{ basketQuantity }</div> : null}
         </Link>
       </div>
     </div>

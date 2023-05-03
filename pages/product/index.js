@@ -1,11 +1,19 @@
 import Button from "/components/Button";
+import { useDispatch } from "react-redux";
 import styles from "/styles/Home.module.scss";
 import Article from "@/components/Article";
 import ProductImage from "@/components/ProductImage";
 import ProductOptions from "@/components/ProductOptions";
 import {Alert, Stack} from "@mui/material";
+import {useEffect} from "react";
+import {getBasketGoods} from "@/redux/actions/actionCreator";
 
 const Product = () => {
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getBasketGoods())
+  },[]);
   return (
     <div className={styles.homePage}>
       <div className={styles.productWrapper}>

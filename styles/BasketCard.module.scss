@@ -5,15 +5,14 @@
   height: 180px;
   fill-rule: evenodd;
   display: flex;
-  margin: 30px 0;
+  border-top: 1px solid $white-1;
+
+  &:last-child {
+    border-bottom: 1px solid $white-1;
+  }
 
   .image {
     margin-right: 30px;
-  }
-
-  .name {
-    font-size: 18px;
-    color: $black;
   }
 
   .price, .size {
@@ -27,12 +26,30 @@
     display: flex;
   }
 
+  .name {
+    text-decoration: none;
+    font-size: 18px;
+    color: $black;
+    padding-top: 10px;
+  }
+
   .quantity {
     width: 20%;
+    padding-top: 10px;
   }
 
   .total {
+    margin-bottom: 30px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
     width: 20%;
-    text-align: end;
+
+    .trashIcon {
+      cursor: pointer;
+      fill: $black-1;
+    }
   }
 }

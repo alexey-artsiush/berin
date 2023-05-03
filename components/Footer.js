@@ -28,7 +28,7 @@ const Footer = () => {
       <div>
         <div className={styles.social}>
           <div className={styles.socialIcon}>
-            <Link className={styles.navLink} href=" https://www.instagram.com/berin.bless/">
+            <Link className={styles.navLink} href=" https://www.instagram.com/berin.bless">
               <Instagram />
             </Link>
           </div>
