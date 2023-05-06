@@ -13,6 +13,7 @@ const Basket = () => {
     localStorage.setItem("bag", JSON.stringify(newBasket))
   }
 
+  console.log(basketState)
 
   return (
     <div className={styles.basket}>

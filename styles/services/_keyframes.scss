@@ -1,0 +1,14 @@
+@keyframes transform {
+  0% {
+    bottom: -10px;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 40px;
+  }
+}

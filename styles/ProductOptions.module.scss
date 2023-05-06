@@ -1,4 +1,5 @@
-@import "varaibles.module";
+@import "services/varaibles.module";
+@import "services/keyframes";
 
 .clotheOptions {
   font-size: 26px;
@@ -6,6 +7,18 @@
   position: sticky;
   top: 1em;
   min-height: 2em;
+
+  @media (max-width: 1440px) {
+    padding: 50px;
+  }
+
+  .alert {
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    animation: transform .4s ease-in-out;
+  }
+
 
   .clotheOptionsTitle {
     width: 100%;
@@ -53,11 +66,16 @@
   }
 
   .button {
-    background-color: $red;
+    background-color: $black-1;
     border: none;
     color: white;
     font-weight: 700;
     padding: 8px 35px;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    background-color: $black-2;
   }
 
   .sizeButton {

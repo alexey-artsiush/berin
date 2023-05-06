@@ -1,5 +1,4 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import {GET_BASKET} from '../constants';
 import { getBasketGoods } from '../../api/index';
 import {setBasket} from "@/redux/reducers/basketReducer";
 

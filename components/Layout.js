@@ -10,13 +10,14 @@ const Layout = ({ children }) => {
   const basket = useSelector(state => state.basket.basket)
 
   useEffect(() => {
-    const basket = getBasketGoods()
-    dispatch(replaceBasket(basket))
+    let basket = getBasketGoods();
+    if (!basket) basket = []
+    dispatch(replaceBasket(basket));
   }, [])
 
   return (
     <>
-      <Header basketQuantity={basket.length}/>
+      <Header basketQuantity={basket?.length} />
       {children}
       <Footer />
     </>
