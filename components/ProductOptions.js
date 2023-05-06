@@ -2,8 +2,8 @@ import styles from "/styles/ProductOptions.module.scss";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
-import { useSelector, useDispatch } from "react-redux";
-import {setBasketGoods} from "../redux/actions/actionCreator";
+import { useDispatch } from "react-redux";
+import {setBasket} from "../redux/reducers/basketReducer";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import image from "/public/product/1.jpg";
 import Accordion from "@mui/material/Accordion";
@@ -17,12 +17,12 @@ const ProductOptions = ({name = "T-SHIRT", price = 199}) => {
   const [size, setSize] = useState('');
   const handleBag = () => {
     let previousBasket = JSON.parse(localStorage.getItem("bag"))
-    if (!previousBasket) {
+    if (previousBasket == null) {
       previousBasket = []
     }
-    // setBasketGoods()
     previousBasket.push({name: name, price: price, size: size, quantity: 1, image: image, id: Math.round(Math.random()*10000)})
     localStorage.setItem("bag", JSON.stringify(previousBasket))
+    dispatch(setBasket({name: name, price: price, size: size, quantity: 1, image: image, id: Math.round(Math.random()*10000)}))
   }
 
   return (

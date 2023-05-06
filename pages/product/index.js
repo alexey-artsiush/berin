@@ -5,15 +5,9 @@ import Article from "@/components/Article";
 import ProductImage from "@/components/ProductImage";
 import ProductOptions from "@/components/ProductOptions";
 import {Alert, Stack} from "@mui/material";
-import {useEffect} from "react";
-import {getBasketGoods} from "@/redux/actions/actionCreator";
 
-const Product = () => {
-  const dispatch = useDispatch();
+export default function Product() {
 
-  useEffect(()=>{
-    dispatch(getBasketGoods())
-  },[]);
   return (
     <div className={styles.homePage}>
       <div className={styles.productWrapper}>
@@ -35,5 +29,3 @@ const Product = () => {
     </div>
   );
 };
-
-export default Product;

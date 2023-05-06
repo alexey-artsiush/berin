@@ -1,17 +1,16 @@
 import styles from "/styles/Basket.module.scss";
 import BasketCard from "@/components/BasketCard";
-import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {replaceBasket, setBasket} from "@/redux/reducers/basketReducer";
 
 const Basket = () => {
-  const [basket, setBasket] = useState([])
-
-  useEffect(()=>{
-    setBasket(JSON.parse(localStorage.getItem("bag")));
-    localStorage.setItem("bag", JSON.stringify(basket))
-  },[]);
+  const dispatch = useDispatch()
+  const basketState = useSelector(state => state.basket.basket)
 
   const removeProduct = id => {
-    setBasket(prevBasket => prevBasket.filter(el => el.id !== id))
+    const newBasket = basketState.filter(el => el.id !== id)
+    dispatch(replaceBasket(newBasket))
+    localStorage.setItem("bag", JSON.stringify(newBasket))
   }
 
 
@@ -35,8 +34,8 @@ const Basket = () => {
           </div>
           <div className={styles.line}></div>
           <div className={styles.basketList}>
-            {basket && basket.length > 0?
-              basket.map((product)=> (
+            {basketState && basketState.length > 0?
+              basketState.map((product)=> (
                   <BasketCard
                     product={product}
                     key={product.id}

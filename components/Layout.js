@@ -1,19 +1,22 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useSelector, useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {getBasketGoods} from "@/redux/actions/actionCreator";
+import {getBasketGoods} from "@/api";
+import {replaceBasket} from "@/redux/reducers/basketReducer";
 
 const Layout = ({ children }) => {
-  const basketQuantity = useSelector(state => state.basket.basket.length);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  const basket = useSelector(state => state.basket.basket)
 
-  useEffect(()=>{
-    dispatch(getBasketGoods())
-  },[]);
+  useEffect(() => {
+    const basket = getBasketGoods()
+    dispatch(replaceBasket(basket))
+  }, [])
+
   return (
     <>
-      <Header basketQuantity={basketQuantity}/>
+      <Header basketQuantity={basket.length}/>
       {children}
       <Footer />
     </>
