@@ -12,8 +12,8 @@ const alertSlice = createSlice({
   name: 'alerts',
   initialState,
   reducers: {
-    setSuccessAlert: (state) => {
-      state.alerts.successAlertActive = !state.alerts.successAlertActive
+    setSuccessAlert: (state, action) => {
+      state.alerts.successAlertActive = action.payload
     },
     setErrorAlert: (state) => {
       state.alerts.errorAlertActive = !state.alerts.errorAlertActive

@@ -3,7 +3,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
 import {useDispatch, useSelector} from "react-redux";
-import {setBasket} from "../redux/reducers/basketReducer";
+import {replaceBasket, setBasket} from "../redux/reducers/basketReducer";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import image from "/public/product/1.jpg";
 import Accordion from "@mui/material/Accordion";
@@ -18,19 +18,37 @@ const ProductOptions = ({name = "T-SHIRT", price = 199}) => {
   const alertsActive = useSelector(state => state.alerts.alerts)
   const [size, setSize] = useState('S');
 
-  const handleBag = () => {
+  const item = {name: name, price: price, size: size, quantity: 1, image: image, id: `${name}-${size}`}
+
+  function handleBag(item) {
     let previousBasket = JSON.parse(localStorage.getItem("bag"))
-    if (previousBasket) {
-      console.log(previousBasket.find(element => element.id === "T-SHIRT-S"))
-      // ищем совпадения в корзине, если есть, то нужно добавить в объект товара количество +1
-    }
+
     if (!previousBasket) {
       previousBasket = []
+      previousBasket.push(item)
+      localStorage.setItem("bag", JSON.stringify(previousBasket))
+      dispatch(setBasket(item))
+      dispatch(setSuccessAlert(true))
+      setTimeout(() => {dispatch(setSuccessAlert(false))}, 5000)
+
+      return
     }
-    previousBasket.push({name: name, price: price, size: size, quantity: 1, image: image, id: `${name}-${size}`})
-    localStorage.setItem("bag", JSON.stringify(previousBasket))
-    dispatch(setBasket({name: name, price: price, size: size, quantity: 1, image: image, id: `${name}-${size}`}))
-    dispatch(setSuccessAlert())
+
+    const existingItem = previousBasket.find(anyItem => anyItem.id === item.id);
+    if (existingItem) {
+      existingItem.quantity++;
+      localStorage.setItem("bag", JSON.stringify(previousBasket))
+      dispatch(replaceBasket(previousBasket))
+      dispatch(setSuccessAlert(true))
+      setTimeout(() => {dispatch(setSuccessAlert(false))}, 5000)
+    } else {
+      previousBasket.push(item)
+      localStorage.setItem("bag", JSON.stringify(previousBasket))
+      dispatch(setBasket(item))
+      dispatch(setSuccessAlert(true))
+      setTimeout(() => {dispatch(setSuccessAlert(false))}, 5000)
+    }
+    return previousBasket;
   }
 
   return (
@@ -69,7 +87,7 @@ const ProductOptions = ({name = "T-SHIRT", price = 199}) => {
           </ToggleButton>
         </ToggleButtonGroup>
         <Button
-          className={styles.button} disabled={size ? false : true} text="Add to bag" onClick={() => handleBag()} />
+          className={styles.button} disabled={size ? false : true} text="Add to bag" onClick={() => handleBag(item)} />
       </div>
 
       <Accordion
@@ -140,7 +158,7 @@ const ProductOptions = ({name = "T-SHIRT", price = 199}) => {
           variant="filled"
           severity="success"
           className={styles.alert}
-          onClose={() => {dispatch(setSuccessAlert())}}
+          onClose={() => {dispatch(setSuccessAlert(false))}}
         >
           Added to cart!
         </Alert> : null }

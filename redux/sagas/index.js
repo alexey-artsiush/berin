@@ -8,7 +8,7 @@ export function* handleBasketGoods() {
 }
 
 export function* watchClickSaga() {
-  yield takeEvery(GET_BASKET, handleBasketGoods);
+  // yield takeEvery(GET_BASKET, handleBasketGoods);
 }
 
 export default function* rootSaga() {

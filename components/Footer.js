@@ -28,9 +28,9 @@ const Footer = () => {
       <div>
         <div className={styles.social}>
           <div className={styles.socialIcon}>
-            <Link className={styles.navLink} href=" https://www.instagram.com/berin.bless">
+            <a className={styles.navLink} href="https://www.instagram.com/berin.bless" target="_blank" rel="noreferrer noopener">
               <Instagram />
-            </Link>
+            </a>
           </div>
           <div className={styles.socialIcon}>
             <Image src={Telegram} alt="telegram-logo" />
