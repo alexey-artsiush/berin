@@ -7,9 +7,8 @@ import {replaceBasket, setBasket} from "../redux/reducers/basketReducer";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import image from "/public/product/1.jpg";
 import Accordion from "@mui/material/Accordion";
-import Button from "@/components/Button";
 import {useState} from "react";
-import {Alert, ToggleButton} from "@mui/material";
+import {Alert, Button, ToggleButton} from "@mui/material";
 import { ToggleButtonGroup } from '@mui/material';
 import {setErrorAlert, setSuccessAlert} from "@/redux/reducers/alertReducer";
 
@@ -87,7 +86,12 @@ const ProductOptions = ({name = "T-SHIRT", price = 199}) => {
           </ToggleButton>
         </ToggleButtonGroup>
         <Button
-          className={styles.button} disabled={size ? false : true} text="Add to bag" onClick={() => handleBag(item)} />
+          className={styles.button}
+          disabled={size ? false : true}
+          onClick={() => handleBag(item)}
+        >
+          Add to bag
+        </Button>
       </div>
 
       <Accordion

@@ -1,7 +1,8 @@
-import styles from "/styles/BasketCard.module.scss";
 import Image from "next/image";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import Link from "next/link";
+import {Button, TextField} from "@mui/material";
+import styles from "/styles/BasketCard.module.scss";
 
 const BasketCard = ({ product, onClick }) => {
   return (
@@ -23,7 +24,32 @@ const BasketCard = ({ product, onClick }) => {
         </div>
       </div>
       <div className={styles.quantity}>
-        {product.quantity}
+        <Button
+          variant="text"
+          color="default"
+        >
+          -
+        </Button>
+        <TextField
+          color="default"
+          id="standard-basic"
+          variant="standard"
+          defaultValue={product.quantity}
+          sx={{
+            width: 50
+          }}
+          InputProps={{
+            inputProps: {
+              style: { textAlign: "center", width: "100%" },
+            }
+          }}
+        />
+        <Button
+          variant="text"
+          color="default"
+        >
+          +
+        </Button>
       </div>
       <div className={styles.total}>
         {product.quantity * product.price} NIS
