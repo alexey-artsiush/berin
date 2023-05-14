@@ -13,10 +13,19 @@
 
 .productWrapper {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
+
+  @media (max-width: 1034px) {
+
+  }
 
   .productImagesWrapper {
     width: 60%;
+
+    @media (max-width: 1034px) {
+      width: 100%;
+    }
 
     img {
       width: 100%;
@@ -27,5 +36,9 @@
 
   .productOptionsWrapper {
     width: 40%;
+
+    @media (max-width: 1034px) {
+      width: 100%;
+    }
   }
 }
