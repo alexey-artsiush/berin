@@ -11,6 +11,9 @@ import {useState} from "react";
 import {Alert, Button, ToggleButton} from "@mui/material";
 import { ToggleButtonGroup } from '@mui/material';
 import {setErrorAlert, setSuccessAlert} from "@/redux/reducers/alertReducer";
+import Image from "next/image";
+import Logo from "@/public/logo.webp";
+import Link from "next/link";
 
 const ProductOptions = ({name = "T-SHIRT", price = 199}) => {
   const dispatch = useDispatch();
@@ -164,7 +167,7 @@ const ProductOptions = ({name = "T-SHIRT", price = 199}) => {
           className={styles.alert}
           onClose={() => {dispatch(setSuccessAlert(false))}}
         >
-          Added to cart!
+          Added to <Link className={styles.navLink} href="/basket">cart!</Link>
         </Alert> : null }
 
       {alertsActive.errorAlertActive ?

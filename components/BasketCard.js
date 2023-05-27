@@ -4,7 +4,7 @@ import Link from "next/link";
 import {Button, TextField} from "@mui/material";
 import styles from "/styles/BasketCard.module.scss";
 
-const BasketCard = ({ product, onClick }) => {
+const BasketCard = ({ product, onClick, handlePlus, handleMinus }) => {
   return (
     <div className={styles.basketCard}>
       <div className={styles.product}>
@@ -27,6 +27,7 @@ const BasketCard = ({ product, onClick }) => {
         <Button
           variant="text"
           color="default"
+          onClick={handleMinus}
         >
           -
         </Button>
@@ -34,7 +35,7 @@ const BasketCard = ({ product, onClick }) => {
           color="default"
           id="standard-basic"
           variant="standard"
-          defaultValue={product.quantity}
+          value={product.quantity}
           sx={{
             width: 50
           }}
@@ -47,6 +48,7 @@ const BasketCard = ({ product, onClick }) => {
         <Button
           variant="text"
           color="default"
+          onClick={handlePlus}
         >
           +
         </Button>

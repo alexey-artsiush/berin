@@ -78,6 +78,11 @@
     }
   }
 
+  .navLink {
+    font-weight: 700;
+    color: $white;
+  }
+
   button:disabled {
     cursor: not-allowed;
     background-color: $black-2;

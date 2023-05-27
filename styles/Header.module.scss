@@ -8,6 +8,11 @@
   align-items: center;
   font-size: 22px;
   color: $white;
+  height: 100px;
+  position: sticky;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
 
   .basket {
     width: 33.33%;
@@ -55,4 +60,8 @@
     width: 33.33%;
     text-align: center;
   }
+}
+
+.down {
+  top: -100px;
 }
