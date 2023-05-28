@@ -1,7 +1,8 @@
-import styles from "/styles/Basket.module.scss";
 import BasketCard from "@/components/BasketCard";
 import {useDispatch, useSelector} from "react-redux";
 import {replaceBasket, setBasket} from "@/redux/reducers/basketReducer";
+import {Button} from "@mui/material";
+import styles from "/styles/Basket.module.scss";
 
 const Basket = () => {
   const dispatch = useDispatch()
@@ -77,10 +78,22 @@ const Basket = () => {
                   />
                 )
               ): <h3>Here is clear</h3> }
+
           </div>
           <div className={styles.total}>
             SUBTOTAL: <span className={styles.subtotalNumber}>{total}</span>
           </div>
+
+          {basketState && basketState.length > 0?
+            <div className={styles.pay}>
+              <Button
+                sx={{
+                  color: 'white',
+                  backgroundColor: 'black',
+                }}
+              >Checkout</Button>
+            </div>
+            : null}
         </div>
       </div>
     </div>

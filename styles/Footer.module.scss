@@ -8,15 +8,22 @@
   justify-content: space-between;
   flex-wrap: wrap;
 
-
   .contacts {
     display: flex;
+
+    @media (max-width: 500px) {
+      width: 100%;
+    }
 
     .contact {
       display: flex;
       flex-direction: column;
       margin-right: 30px;
       text-align: center;
+
+      @media (max-width: 500px) {
+        width: 100%;
+      }
 
       img {
         margin-right: -8px;
@@ -37,6 +44,12 @@
 
   .social {
     display: flex;
+
+    @media (max-width: 502px) {
+      width: 100%;
+      margin: 40px auto;
+      justify-content: center;
+    }
   }
 
   .socialIcon {

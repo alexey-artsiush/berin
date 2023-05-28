@@ -1,8 +1,8 @@
+import styles from "/styles/BasketCard.module.scss";
 import Image from "next/image";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import Link from "next/link";
 import {Button, TextField} from "@mui/material";
-import styles from "/styles/BasketCard.module.scss";
 
 const BasketCard = ({ product, onClick, handlePlus, handleMinus }) => {
   return (

@@ -41,6 +41,12 @@
   }
 }
 
+.pay {
+  width: 100%;
+  text-align: end;
+  margin: 20px 0 30px;
+}
+
 .line {
   border-bottom: 1px solid $black-2;
   padding: 10px 0;
@@ -54,7 +60,7 @@
 .total {
   width: 100%;
   text-align: end;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .subtotalNumber {

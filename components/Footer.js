@@ -13,20 +13,13 @@ const Footer = () => {
       <div className={styles.contacts}>
         <div className={styles.contact}>
           <span className={styles.phone}>
-            <Image src={Phone} alt="phone-logo" /> +9725 000000000
-          </span>
-          <span className={styles.schedule}>10-20 Monday through Friday </span>
-        </div>
-        <div className={styles.contact}>
-          <span className={styles.phone}>
-            <Image src={Whatsapp} alt="whatsapp-logo" /> +9725 00000000
+            <Image src={Phone} alt="phone-logo" /> +9725 3974722
           </span>
           <span className={styles.schedule}>10-20 Monday through Friday </span>
         </div>
       </div>
 
-      <div>
-        <div className={styles.social}>
+      <div className={styles.social}>
           <div className={styles.socialIcon}>
             <a className={styles.navLink} href="https://www.instagram.com/berin.bless" target="_blank" rel="noreferrer noopener">
               <Instagram />
@@ -39,7 +32,6 @@ const Footer = () => {
             <Image src={Facebook} alt="facebook-logo" />
           </div>
         </div>
-      </div>
 
       <div className={styles.line}></div>
 
