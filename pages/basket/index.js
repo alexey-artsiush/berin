@@ -90,6 +90,10 @@ const Basket = () => {
                 sx={{
                   color: 'white',
                   backgroundColor: 'black',
+                    "&:hover": {
+                      backgroundColor: 'black',
+                      color: 'white',
+                    }
                 }}
               >Checkout</Button>
             </div>

@@ -28,6 +28,7 @@ const BasketCard = ({ product, onClick, handlePlus, handleMinus }) => {
           variant="text"
           color="default"
           onClick={handleMinus}
+          disabled={product.quantity <= 1? true : false}
         >
           -
         </Button>
